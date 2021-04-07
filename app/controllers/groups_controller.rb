@@ -6,4 +6,17 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
   end
+
+  def create
+    @group = Group.new(group_params)
+    @group.save
+
+    redirect_to groups_path # 重定向到index列表
+  end
+
+  private
+
+  def group_params
+    params.require(:group).permit(:title, :description)
+  end
 end
