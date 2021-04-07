@@ -38,6 +38,8 @@ gem 'jbuilder', '~> 2.5'
 # 为项目添加修饰Bootstrap-sass
 gem 'bootstrap-sass'
 gem 'simple_form'
+# devise 是Rails中的热门gem，用来快速实现登陆注册功能
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
