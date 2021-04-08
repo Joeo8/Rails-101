@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  
   has_many :posts
   has_many :groups
 
@@ -14,4 +15,14 @@ class User < ApplicationRecord
   def is_member_of?(group)
     participated_groups.include?(group)
   end
+
+  # 加入群组和退出群组操作
+  def join!(group)
+    participated_groups << group
+  end
+
+  def quit!(group)
+    participated_groups.delete(group)
+  end
+
 end
