@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   namespace :account do
     resources :groups
+    resources :posts
   end
 
   # 将 / 根地址指向welcome下的index页面渲染
