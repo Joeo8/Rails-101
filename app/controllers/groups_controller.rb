@@ -11,7 +11,9 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     # @posts = @group.posts
     # 文章按发表时间倒序排列
-    @posts = @group.posts.order("created_at DESC")
+    # @posts = @group.posts.order("created_at DESC")
+    # 利用内建的scope实现排序功能（model中定义的recent）
+    @posts = @group.posts.recent
   end
 
   def edit
