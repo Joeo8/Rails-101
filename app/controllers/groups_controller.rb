@@ -30,6 +30,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.user = current_user
     if @group.save
+      current_user.join!(@group)
       redirect_to groups_path, notice: " Create Success " # 重定向到index列表
     else
       render :new
