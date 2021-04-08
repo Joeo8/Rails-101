@@ -10,6 +10,11 @@ Rails.application.routes.draw do
     resources :posts
 
   end
+
+  namespace :account do
+    resources :groups
+  end
+
   # 将 / 根地址指向welcome下的index页面渲染
   # root 'welcome#index'
   # 将跟地址指向讨论组列表页渲染
