@@ -9,7 +9,9 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    @posts = @group.posts
+    # @posts = @group.posts
+    # 文章按发表时间倒序排列
+    @posts = @group.posts.order("created_at DESC")
   end
 
   def edit
